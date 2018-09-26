@@ -34,4 +34,48 @@
     }
 ```
 
-2.
+2.CreateCell
+
+```
+    void CreateCell()
+    {
+        lastCells = new List<int>();
+        lastCells.Clear();
+        totalCell = xLong * yLong;
+        int westEastNumber = 0;
+        int northSouthNumber = 0;
+        cells = new Cell[xLong * yLong];
+        List<GameObject> allWalls = new List<GameObject>();
+
+        for(int i = 0; i < wallHoder.transform.childCount; i++)
+        {
+            allWalls.Add(wallHoder.transform.GetChild(i).gameObject);
+        }
+
+        for(int i = 0; i < cells.Length; i++)
+        {
+            cells[i] = new Cell();
+            cells[i].ID = i+1;
+            cells[i].West = allWalls[westEastNumber];
+            cells[i].East = allWalls[westEastNumber + yLong];
+
+            cells[i].North = allWalls[northSouthNumber + xLong * yLong + yLong];
+            cells[i].South = allWalls[northSouthNumber + xLong * yLong + yLong + 1];
+
+            if((i+1)%yLong == 0)
+            {
+                northSouthNumber += 2;
+            }
+            else
+            {
+                northSouthNumber++;
+            }
+            cells[i].CellPos = new Vector3(cells[i].East.transform.position.x - .5f, 0f, cells[i].East.transform.position.z);
+
+            westEastNumber++;
+           
+
+        }
+        CreateMaze();
+    }
+```
