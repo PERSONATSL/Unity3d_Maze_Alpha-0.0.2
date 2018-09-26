@@ -79,3 +79,9 @@
         CreateMaze();
     }
 ```
+
+## Screen Shot
+*---------------- 1
+![8](https://user-images.githubusercontent.com/42737061/46077966-44b17a00-c1c5-11e8-99fe-5880377b3dbf.PNG)
+*---------------- 2
+![7](https://user-images.githubusercontent.com/42737061/46077967-44b17a00-c1c5-11e8-94a0-51d4ef733042.PNG)
